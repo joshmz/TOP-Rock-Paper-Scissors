@@ -1,5 +1,17 @@
-let humanScore = 0;
-let compScore = 0;
+const results = document.querySelector("#results");
+const buttons = document.querySelectorAll("button");
+const playerScore = document.querySelector(".playerScore");
+const compScore = document.querySelector(".computerScore");
+
+playerScore.textContent = 0
+compScore.textContent = 0
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playRound(button.id, getCompChoice())
+    });
+});
+
 
 function getCompChoice() {
     randChoice = Math.floor(Math.random() * 3) + 1
@@ -13,58 +25,48 @@ function getCompChoice() {
     }
 }
 
-function getHumanChoice(){
-    choice = prompt("Rock / Paper / Scissors")
-    choice = choice.toLowerCase()
-    return choice
-}
-
 function playRound(humanChoice, compChoice){
     let win;
     if (humanChoice === compChoice){
-        console.log(`It's A Tie! You both chose ${humanChoice}!`)
+        results.textContent = (`It's A Tie! You both chose ${humanChoice}!`)
         return
     }
     if (humanChoice == "rock"){
         switch(compChoice){
             case("paper"):
                 win = false;
+                break;
             case("scissors"):
                 win = true;
-
+                break;
         }
     }
     else if (humanChoice == "paper"){
         switch(compChoice){
             case("rock"):
                 win = true;
+                break;
             case("scissors"):
                 win = false;
-
+                break;
         }
     }
     else if (humanChoice == "scissors"){
         switch(compChoice){
             case("rock"):
-                win = true;
-            case("paper"):
                 win = false;
-
+                break;
+            case("paper"):
+                win = true;
+                break;
         }
     }
     if (win == true){
-        humanScore ++;
-        console.log(`You Win! ${humanChoice} beats ${compChoice}!`)
+        playerScore.textContent ++;
+        results.textContent = (`You Win! ${humanChoice} beats ${compChoice}!`)
     }
-    else{
-        compScore ++
-        console.log(`You Lose! ${humanChoice} beats ${compChoice}!`)
+    else if (win == false){
+        compScore.textContent ++
+        results.textContent = (`You Lose! ${compChoice} beats ${humanChoice}!`)
     }
 }
-
-// Play game
-for (let i = 0; i < 5; i++){
-    playRound(getHumanChoice(), getCompChoice())
-}
-console.log(`PLAYER SCORE: ${humanScore}`)
-console.log(`COMPUTER SCORE: ${compScore}`)

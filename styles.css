@@ -1,0 +1,96 @@
+* {
+    font-family:'Courier New', Courier, monospace;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+#container button {
+    margin-top: 10px;
+    background-color: white;
+    border: none;
+    width: 100px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+#container button:hover {
+    background-color: rgb(231, 228, 228);
+    cursor: pointer;
+}
+
+#container button:active {
+    background-color: rgb(190, 190, 190);
+    cursor: pointer;
+}
+
+#results {
+    display: flex;
+    margin:auto;
+    padding: 10px;
+    width: fit-content;
+    margin-top: 25px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+#results:empty {
+    border: none;
+}
+
+#scoreboard {
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid black;
+
+    width: 500px;
+    height: 100px;
+
+    margin: auto;
+    margin-top: 25px;
+}
+
+#scoreboard > .labels {
+    display: flex;
+    /* border: 2px solid black; */
+}
+
+.labels > .player {
+    flex: 1 1 1;
+    font-size: 30px;
+    margin: 10px;
+    margin-left: 50px;
+}
+
+.labels > .computer {
+    flex: 1 1 1;
+    font-size: 30px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+#scoreboard > .scores {
+    display: flex;
+    /* border: 2px solid black; */
+}
+
+.scores > .playerScore {
+    flex: 1 1 1;
+    font-size: 30px;
+    margin: 10px;
+    margin-left: 50px;
+}
+
+.scores > .computerScore {
+    flex: 1 1 1;
+    font-size: 30px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: 50px;
+}
